@@ -21,11 +21,21 @@ export const addItemsToCart =
     try {
       dispatch({ type: ADD_TO_CART });
       // const requestData = { userId, productId, quantity, size };
-      const config = { headers: { "Content-Type": "application/json" } };
+      const jwtToken = localStorage.getItem("JWTToken");
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
+        }
+      }; 
+      // const config = { headers: { "Content-Type": "application/json" } };
       const data = await axios.post(
         `${baseURL}/cart`,
         userId, productId, quantity, size, config,
       );
+
+      // console.log("cartaction38",data)
 
       dispatch({
         type: ADD_TO_CART,

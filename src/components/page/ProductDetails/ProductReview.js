@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { CLEAR_ERRORS } from "../../../Constants/productConstant";
 import { useAlert } from "react-alert";
 import { useParams } from "react-router-dom";
-import userImage from "./../../../asset/images/for-men.jpg"
+import userImage from "./../../../asset/images/user_img.jpg"
 import moment from "moment";
 
 const ProductReview = () => {

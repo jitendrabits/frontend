@@ -70,6 +70,8 @@ export const login = (userData, password) => async (dispatch) => {
       localStorage.setItem("name", data.data.name);
       localStorage.setItem("email", data.data.email);
       localStorage.setItem("contact", data.data.contact);
+      localStorage.setItem("gender", data.data.gender);
+
     }
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });

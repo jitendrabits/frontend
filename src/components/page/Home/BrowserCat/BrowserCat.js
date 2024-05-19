@@ -77,15 +77,14 @@ const handleClickCategory = (caregoryId) =>{
               categoryData.data.data &&
               categoryData.data.data.map((cat) => (
                 <div key={cat._id} className="category-box" onClick={()=>handleClickCategory(cat._id)}>
+               
                   <Link to={`/products`}>
                   <img
                     src={cat.categoryImage}
                     alt="Category Image"
                     className="img rounded-full"
-                  />
-                  </Link>
-                 
-                  {/* <p>{cat.name}</p> */}
+                   />
+                  </Link>                
                 </div>
               ))}
           </Slider>

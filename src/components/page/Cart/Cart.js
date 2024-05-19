@@ -165,10 +165,8 @@ const Cart = () => {
                                   <label className="text-xl font-bold">
                                     {product.name}
                                   </label>
-                                  <p className="text-xl">
-                                    {product.size
-                                      ? "Size: " + product.size
-                                      : " Free Size"}
+                                  <p className="text-xl font-medium">
+                                    {"Total Pages : "+product.sizeVariation}
                                   </p>
                                   <p className="text-xl font-medium ">
                                     Price:{" "}

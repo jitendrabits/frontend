@@ -16,25 +16,43 @@ import Breadcrumbs from "../../Breadcrumbs/Breadcrumbs";
 import "./product-details.css";
 import ProductDetailsSkeleton from "./ProductDetailsSkelton";
 import { useNavigate } from 'react-router-dom';
-
-function ProductDetails({ match }) {
+ 
+function ProductDetails ({ match }) {
   const navigate = useNavigate();
   const [quantity, setQuentity] = useState(1);
   const [size, setSize] = useState();
+  const [brandname, setBrandname] = useState();
+
   const [price, setPrice] = useState();
   const [userId, setUserId] = useState();
   const [productImageView, setProductImageView] = useState(null);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [showSkelton, setShowSkelton] = useState(true);
   const [clicked, setClicked] = useState(false);
+  
 
   const dispatch = useDispatch();
   const { productId } = useParams();
   const alert = useAlert();
 
-  const { product, loading, error } = useSelector(
-    (state) => state.productDetails
+  const { product, loading, error } = useSelector( (state) => state.productDetails
   );
+  const {brand, loading1, error1 } = useSelector((state) => state.brand);
+  //const brand1 = brand ? brand.find((brand) => brand.id === product.brand) : null;
+
+ // const brand1 = brand.find((brand) => brand.id === product.brand);
+
+
+  // console.log("productDetails39",brand)
+  const findBrandById = (brands, id) => {
+    return brands.find(brand => brand._id === id); // Assuming the ID field is `_id`
+};
+const foundBrand = findBrandById(brand.data.data, product.brand);
+// setBrandname(foundBrand?.name)
+
+// console.log("productDetails39",foundBrand?.name)
+// console.log("productDetails319",findBrandById(brand.data.data,"66460ac44d296e2eafff50db"))
+
 
   useEffect(() => {
     if (error) {
@@ -89,8 +107,10 @@ function ProductDetails({ match }) {
   };
 
   return (
+    
     <>
       <>
+      {/* console.log("productdetails94",{product.brand}) */}
         <CommonBanner pageTitle={product.name} />
         <Breadcrumbs
           breadcumr1="Product Listing"
@@ -228,60 +248,26 @@ function ProductDetails({ match }) {
                     </div>
                     <div className="mb-2 pt-0.5">
                       <div className="flex justify-between">
-                        <h4 className="text-xl font-bold italic">Size</h4>
+                        <h4 className="text-xl font-bold italic">Tags</h4>
                         <h4 className="text-xl font-bold italic underline">
                            
                         </h4>
                       </div>
+                      <p>{"Pages: "+product.sizeVariation}</p>
+                      
                       <ul className="flex flex-wrap space-x-2 mt-2">
                         <li
-                          value={size}
-                          className={`product-size${size === "XS" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("XS")}
+                        
+                          value={"XS"}
+                          className={`product-size${size === "XS" ? " selected" : "" }`}
+                          // onClick={() => sizeHandler("XS")}
                         >
-                          XS
-                        </li>
+                        {foundBrand ? foundBrand.name : "Wiley"}
 
-                        <li
-                          className={`product-size${size === "S" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("S")}
-                        >
-                          S
-                        </li>
 
-                        <li
-                          className={`product-size${size === "M" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("M")}
-                        >
-                          M
-                        </li>
+                          </li>
 
-                        <li
-                          className={`product-size${size === "L" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("L")}
-                        >
-                          L
-                        </li>
-
-                        <li
-                          className={`product-size${size === "XL" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("XL")}
-                        >
-                          XL
-                        </li>
-
-                        <li
-                          className={`product-size${size === "XXL" ? " selected" : ""
-                            }`}
-                          onClick={() => sizeHandler("XXL")}
-                        >
-                          XXL
-                        </li>
+                       
                       </ul>
                     </div>
                     <div className="grid grid-cols-4 gap-4 mt-4 md:mr-20">

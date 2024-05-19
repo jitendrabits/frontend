@@ -28,7 +28,15 @@ export const orderCheckout =
     async (dispatch) => {
       try {
         dispatch({ type: CREATE_ORDER_REQUEST });
-        const config = { headers: { "Content-Type": "application/json" } };
+        // const config = { headers: { "Content-Type": "application/json" } };
+        const jwtToken = localStorage.getItem("JWTToken");
+
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
+          }
+        }; 
         const { data } = await axios.post(
           `${baseURL}/checkout`,
           {
@@ -69,8 +77,22 @@ export const orderPaymentCallback =
           paymentStatus
         };
 
+        const jwtToken = localStorage.getItem("JWTToken");
+
+        // const config = {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
+        //   }
+        // };  
+
+
         const config = {
-          headers: { "Content-Type": "application/json" },
+          // headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
+          },
           url: `${baseURL}/payment/callback`,
           method: 'POST',
           data: submitData,
@@ -79,7 +101,7 @@ export const orderPaymentCallback =
         // console.log(config);
 
         const { data } = await axios.request(config);
-        console.log(data);
+        // console.log(data);
         dispatch({
           type: CREATE_ORDER_PAYMENT_SUCCESS,
           payload: data,
@@ -103,8 +125,9 @@ export const getOrderDetils = (userId) => async (dispatch) => {
         "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
       }
     };    
+    // console.log("configoaction",config,jwtToken)
     const data = await axios.get(`${baseURL}/order/${userId}`, config);
-    console.log(data);
+    // console.log("hwlllo",data);
     dispatch({ type: 'GET_ORDER_DETAILS_SUCCESS', payload: data });
   } catch (error) {
     dispatch({ type: 'GET_ORDER_DETAILS_FAIL', payload: error.message, });
@@ -114,7 +137,16 @@ export const getOrderDetils = (userId) => async (dispatch) => {
 export const getOneOrderDetil = (orderId) => async (dispatch) => {
   try {
     dispatch({ type: 'GET_ONE_ORDER_DETAILS_REQUEST' });
-    const config = { headers: { "Content-Type": "application/json" } };
+    const jwtToken = localStorage.getItem("JWTToken");
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${jwtToken}` // Set the Bearer token here
+      }}
+
+
+  //  const config = { headers: { "Content-Type": "application/json" } };
     const data = await axios.get(`${baseURL}/order-details/${orderId}`, config);
     // console.log(data);
     dispatch({ type: 'GET_ONE_ORDER_DETAILS_SUCCESS', payload: data });

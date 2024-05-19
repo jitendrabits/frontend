@@ -27,6 +27,7 @@ const Orders = () => {
  
   return (
     <>
+    {/* console.log("orderdetails",{orderDetails}) */}
       <div className="container mx-auto lg:px-0">
         <div className="mx-auto max-w-2xl lg:max-w-7xl px-3 order-listing">
         
@@ -58,22 +59,27 @@ const Orders = () => {
                                 </h3>
                               </div>
                               <div className="mt-1 flex flex-col text-sm">
+                              <p className="border-l border-gray-200  text-sm text-gray-500">
+                                  Date: {new Date(order.orderDate).toLocaleDateString()}{" "}
+                                    {new Date(order.orderDate).toLocaleTimeString()}
+
+                                  </p>
                                 <p className="border-l border-gray-200  text-sm text-gray-500">
                                   Quantity: {item.quantity}
                                 </p>
                               </div>
                               <div className="mt-1">
-                                <p className="text-sm font-medium text-gray-900">
+                                <p className="border-l border-gray-200  text-sm text-gray-500">
                                   Price:  &#8377;{item.price}
                                 </p>
                               </div>
                               <div className="mt-1">
-                                <p className="text-sm font-medium text-gray-900">
+                                <p className="border-l border-gray-200  text-sm text-gray-500">
                                   SubTotal:  &#8377;{order.subTotal}
                                 </p>
                               </div>
                               <div className="mt-1">
-                                <p className="text-sm font-medium text-gray-900">
+                                <p className="border-l border-gray-200  text-sm text-gray-500">
                                   Order ID: <b className="text-lg">{order.orderId}</b>
                                 </p>
                               </div>

@@ -75,6 +75,7 @@ const OrderDetails = () => {
       status: 'Delivered',
     },
   ];
+  // console.log("oneorderdetisl",oneOrderDetails.data.data[0].product.brand)
 
   return (
     <>
