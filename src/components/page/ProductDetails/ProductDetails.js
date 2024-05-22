@@ -47,12 +47,10 @@ function ProductDetails ({ match }) {
   const findBrandById = (brands, id) => {
     return brands.find(brand => brand._id === id); // Assuming the ID field is `_id`
 };
-const foundBrand = findBrandById(brand.data.data, product.brand);
-// setBrandname(foundBrand?.name)
+// const foundBrand = findBrandById(brand.data.data, product.brand);
+const foundBrand = "Author1"
 
-// console.log("productDetails39",foundBrand?.name)
-// console.log("productDetails319",findBrandById(brand.data.data,"66460ac44d296e2eafff50db"))
-
+ 
 
   useEffect(() => {
     if (error) {
