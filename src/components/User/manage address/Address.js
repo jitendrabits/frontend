@@ -39,7 +39,7 @@ const Address = () => {
       dispatch(clearErrors());
     }
     const storedUserId = localStorage.getItem("id");
-    console.log("storeuserid/address.js",(storedUserId))
+    //console.log("storeuserid/address.js",(storedUserId))
     if (storedUserId) setUserId(storedUserId);
     dispatch(getUserAddress(storedUserId));
 

@@ -25,7 +25,7 @@ const Cart = () => {
 
   const { cartItems, error, loading } = useSelector((state) => state.cart);
 
-  console.log(userId);
+  //console.log(userId);
 
   const incressQuantity = (productId, quantity, availableQty) => {
     const newQty = quantity + 1;

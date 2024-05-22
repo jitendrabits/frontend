@@ -47,7 +47,7 @@ const AddAddress = () => {
       ...userData, userId: userId,
     };
 
-    console.log(updatedAddressData);
+    //console.log(updatedAddressData);
 
     await dispatch(addUserAddress(updatedAddressData, userJWT));
 

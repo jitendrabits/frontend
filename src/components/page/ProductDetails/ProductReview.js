@@ -23,8 +23,8 @@ const ProductReview = () => {
     reviewText: "",
   });
 
-  const { error } = useSelector((state) => state.review);
-
+  const { data,error } = useSelector((state) => state.review);
+//console.log("review ",data)
 
   const handleChange = (e) => {
     const { name, value } = e.target;

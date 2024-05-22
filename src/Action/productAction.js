@@ -88,6 +88,7 @@ export const getProductDetils = (productId) => async (dispatch) => {
 
 export const newReview =
   (productId, userId, rating, reviewText) => async (dispatch) => {
+
     try {
       dispatch({ type: NEW_REVIEW_REQUEST });
       const config = { headers: { "Content-Type": "application/json" } };
@@ -98,6 +99,7 @@ export const newReview =
         config
       );
 
+     // console.log("Product action js ",config)
       dispatch({
         type: NEW_REVIEW_SUCCESS,
         payload: data,
