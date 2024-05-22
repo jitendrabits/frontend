@@ -59,12 +59,12 @@ export const searchProductAction = () => async (dispatch) => {
 
     dispatch({
       type: SEARCH_PRODUCTS_SUCCESS,
-      payload: responce.data,
+      payload: responce?.data,
     });
   } catch (error) {
     dispatch({
       type: SEARCH_PRODUCTS_FAILURE,
-      payload: error.response.data.message,
+      payload: error.response?.data?.message,
     });
   }
 };
