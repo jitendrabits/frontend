@@ -48,9 +48,9 @@ const Product = () => {
             <div>
               <ProductSkelton />
             </div>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <ProductSkelton />
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="grid md:grid-cols-5 grid-cols-2 md:gap-5 gap-2 product-listing">
@@ -59,11 +59,11 @@ const Product = () => {
               <ProductCard product={product} key={index} />
             ))}
 
-            {products.map((product, index) => (
+            {/* {products.map((product, index) => (
               <>
                 <ProductCard product={product} key={index} />
               </>
-            ))}
+            ))} */}
 
           </div>
         )}
@@ -91,9 +91,9 @@ const Product = () => {
             <div>
               <ProductSkelton />
             </div>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <ProductSkelton />
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="grid md:grid-cols-5 grid-cols-2 md:gap-5 gap-2 product-listing">
@@ -101,11 +101,11 @@ const Product = () => {
               <ProductCard product={product} key={index} />
             ))}
 
-            {limitProduct.map((product, index) => (
+            {/* {limitProduct.map((product, index) => (
 
               <ProductCard product={product} key={index} />
             ))
-            }
+            } */}
           </div>
         )}
       </div>
