@@ -85,7 +85,9 @@ const store = createStore(
   // initialState,
   persistedReducer,
 
-  composeWithDevTools(applyMiddleware(sentryMiddleware, thunk))
+  // composeWithDevTools(applyMiddleware(sentryMiddleware, thunk))
+  (applyMiddleware(sentryMiddleware, thunk))
+
 );
 
 const persistor = persistStore(store);
