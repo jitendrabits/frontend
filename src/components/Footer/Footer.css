@@ -4,7 +4,7 @@
   background-color: black;
   color: white;
   display: flex;
-  height: 16rem;
+  height: 17rem;
 }
 
 .detailsContainer {
@@ -18,7 +18,7 @@
 }
 
 .links-containor {
-  width: 10rem;
+  width: 11rem;
   margin: 1rem 5rem;
 }
 .links-containor h4 {
@@ -55,7 +55,7 @@
   padding: 0.5rem;
   width: 11.3rem;
   margin-top: 0.5rem;
-  border: 1px solid;
+  border: 1.5px solid;
   border-color: bisque;
   border-radius: 5px;
 }
